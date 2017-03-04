@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SmartCharger</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="open_scanner">Scan QR Code</string>
+    <string name="charginglabel">CHARGING</string>
+    <string name="timeremainingph">2 hr 28 mins remaining</string>
+
+    <string name="car_make_prompt">Choose car manufacturer</string>
+    <string-array name="car_make_array">
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>Chevrolet</item>
+        <item>Fiat</item>
+        <item>Ford</item>
+        <item>Hyundai</item>
+        <item>Kia</item>
+        <item>Mercedes</item>
+        <item>Nissan</item>
+        <item>Tesla</item>
+        <item>Toyota</item>
+    </string-array>
+
+    <string name="car_model_prompt">Choose car model</string>
+    <string-array name="tesla_model_array">
+        <item>Model 3</item>
+        <item>Model S</item>
+        <item>Model X</item>
+    </string-array>
+    <string name="title_activity_connect">ConnectActivity</string>
+</resources>
