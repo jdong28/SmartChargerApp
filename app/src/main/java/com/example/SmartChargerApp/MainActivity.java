@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private static final String TAG = MainActivity.class.getName();
-    private static final int MY_PERMISSION_REQUEST_CAMERA = 0;
+    //private static final int MY_PERMISSION_REQUEST_CAMERA = 0;
     private ViewGroup mainLayout;
 
     private WaveLoadingView mWaveLoadingView;
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
         }
 
     }
-
+/*
     public void openQRScanner (View view) {
         Intent intent = new Intent(this, DecoderActivity.class);
 
@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
             Log.d(TAG, "requesting permission");
             requestCameraPermission();
         }
-    }
+    }*/
 
     // TODO: Implement setVariableTile in WaveLoadingView that adjusts position of label as progress changes
     private void displayChargerInfo(String msg) {
@@ -81,40 +81,7 @@ public class MainActivity extends Activity {
 
     }
 
-    private void requestCameraPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-            Snackbar.make(mainLayout, "Camera access is required to display the camera preview.",
-                    Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
-                @Override public void onClick(View view) {
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[] { Manifest.permission.CAMERA }, MY_PERMISSION_REQUEST_CAMERA);
-                }
-            }).show();
-        } else {
-            Snackbar.make(mainLayout, "Permission is not available. Requesting camera permission.",
-                    Snackbar.LENGTH_SHORT).show();
-            Log.d(TAG, "requesting permission2");
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA },
-                    MY_PERMISSION_REQUEST_CAMERA);
-        }
-    }
 
-    @Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                                     @NonNull int[] grantResults) {
-        if (requestCode != MY_PERMISSION_REQUEST_CAMERA) {
-            return;
-        }
-
-        if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Snackbar.make(mainLayout, "Camera permission was granted.", Snackbar.LENGTH_SHORT).show();
-            Log.d(TAG, "permission granted, opening scanner");
-            Intent intent = new Intent(this, DecoderActivity.class);
-            startActivity(intent);
-        } else {
-            Snackbar.make(mainLayout, "Camera permission request was denied.", Snackbar.LENGTH_SHORT)
-                    .show();
-        }
-    }
 
     public void getJSON () {
         final String URL = "/server/app/algo.html";
