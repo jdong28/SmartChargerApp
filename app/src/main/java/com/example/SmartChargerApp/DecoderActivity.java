@@ -27,11 +27,26 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
     public final static String DECODE_MESSAGE = "com.example.myfirstapp.DECODE_MESSAGE";
     private static final String TAG = DecoderActivity.class.getName();
+    public String make;
+    public String model;
+    public int leaving_hour;
+    public int leaving_min;
+    public int  arriving_hour;
+    public int arriving_min;
+    public String barvalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decoder);
+        Intent intent = getIntent();
+        make =intent.getStringExtra("MAKE");
+        model =intent.getStringExtra("MODEL");
+        leaving_hour =intent.getIntExtra("LEAVINGHOUR",0);
+        leaving_min =intent.getIntExtra("LEAVINGMIN",0);
+        arriving_hour =intent.getIntExtra("ARRIVINGHOUR",0);
+        arriving_min =intent.getIntExtra("ARRIVINGMIN",0);
+        barvalue =intent.getStringExtra("BARVALUE");
 
         mainLayout = (ViewGroup) findViewById(R.id.activity_decoder);
 
@@ -102,8 +117,17 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     @Override
     public void onQRCodeRead(String text, PointF[] points) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("MAKE", make);
+        intent.putExtra("MODEL", model);
+        intent.putExtra("LEAVINGHOUR", leaving_hour);
+        intent.putExtra("LEAVINGMIN", leaving_min);
+        intent.putExtra("ARRIVINGHOUR", arriving_hour);
+        intent.putExtra("ARRIVINGMIN", arriving_min);
+        intent.putExtra("BARVALUE", barvalue);
         intent.putExtra(DECODE_MESSAGE, text);
+        // send information to server
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -117,4 +141,6 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         super.onPause();
         qrCodeReaderView.stopCamera();
     }
+
+
 }

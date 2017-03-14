@@ -5,6 +5,8 @@
     <string name="open_scanner">Scan QR Code</string>
     <string name="charginglabel">CHARGING</string>
     <string name="timeremainingph">2 hr 28 mins remaining</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
     <string name="car_make_prompt">Choose car manufacturer</string>
     <string-array name="car_make_array">
@@ -28,4 +30,24 @@
         <item>Model X</item>
     </string-array>
     <string name="title_activity_connect">ConnectActivity</string>
+
+
+
+
+
+
+        <string-array name="array1">
+            <item>mobile</item>
+            <item>motor</item>
+        </string-array>
+        <string-array name="mobile_array">
+            <item>Android</item>
+            <item>blackberry</item>
+            <item>apple</item>
+        </string-array>
+        <string-array name="motor_array">
+            <item>Audi</item>
+            <item>BMW</item>
+            <item>unicorn</item>
+        </string-array>
 </resources>
